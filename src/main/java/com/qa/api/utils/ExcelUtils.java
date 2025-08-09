@@ -14,6 +14,7 @@ public class ExcelUtils {
 	private static String TEST_DATA_SHEET_PATH ="./src/test/resources/testdata/createuser.xlsx";
 	public static  Workbook book;
 	public static  Sheet sheet;
+	public static String name;
 	
 	public static Object[][] readData(String sheetName) {
 		Object data[][]= null;
