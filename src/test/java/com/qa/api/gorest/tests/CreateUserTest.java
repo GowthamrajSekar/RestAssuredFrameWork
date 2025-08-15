@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.api.base.BaseTest;
 import com.qa.api.constants.AppConstant;
 import com.qa.api.constants.AuthType;
@@ -42,6 +43,7 @@ public class CreateUserTest extends BaseTest {
 		Response response =restClient.post(BASE_URL_GOREST, GOREST_USERS_ENDPOINT, user, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(response.jsonPath().getString("name"), name);
 		Assert.assertNotNull(response.jsonPath().getString("id"));
+		ChainTestListener.log("user id:"+ response.jsonPath().getString("id"));
 		}
 @Test
 public void createUserTeswithString() {
